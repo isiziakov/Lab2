@@ -12,5 +12,15 @@ namespace Lab2.Model
         [Required]
         [StringLength(50)]
         public string district { get; set; }
+
+        public District()
+        {
+
+        }
+
+        public District(string district)
+        {
+            this.district = district;
+        }
     }
 }

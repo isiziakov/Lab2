@@ -18,5 +18,18 @@ namespace Lab2.Model
         [Required]
         [StringLength(50)]
         public string material { get; set; }
+        public virtual District District { get; set; }
+
+        public Flat()
+        {
+
+        }
+        public Flat(int district_id, double square, byte floor, string material)
+        {
+            this.district_id = district_id;
+            this.square = square;
+            this.floor = floor;
+            this.material = material;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab2.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -12,7 +13,12 @@ namespace Lab2
     {
         public MainPage()
         {
+            //Content = new StackLayout()
+            //{
+            //    Children = { new Label() { Text = "Test" } }
+            //};
             InitializeComponent();
+            BindingContext = new MainViewModel(); 
         }
     }
 }

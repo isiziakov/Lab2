@@ -3,4 +3,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lab2.MainPage">
 
+    <StackLayout Margin="8">
+        <StackLayout Orientation="Vertical">
+            <Label Text="Выбранная квартира" FontSize="28" HorizontalTextAlignment="Center"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Комнат:" FontSize="20"/>
+                <Entry FontSize="20" WidthRequest="80" Keyboard="Numeric" Text="{Binding CurrentFlat}"/>
+                <Label Text="Площадь:" FontSize="20"/>
+                <Entry FontSize="20" WidthRequest="100" Keyboard="Numeric" Text="{Binding CurrentSquare}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Этаж:" FontSize="20"/>
+                <Entry FontSize="20" WidthRequest="60" Keyboard="Numeric" Text="{Binding CurrentFloor}"/>
+                <Label Text="Материал:" FontSize="20"/>
+                <Entry FontSize="20" WidthRequest="160" Text="{Binding CurrentMaterial}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Район:" FontSize="20"/>
+                <Picker WidthRequest="300" SelectedItem="{Binding SelectedDistrict}" ItemsSource="{Binding Districts}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="Сохранить" FontSize="20" Command="{Binding Update}"/>
+                <Button Text="Удалить" FontSize="20" Command="{Binding Delete}"/>
+                <Button Text="Создать" FontSize="20" Command="{Binding Create}"/>
+            </StackLayout>
+        </StackLayout>
+        <ListView ItemsSource="{Binding AllFlats}" SelectedItem="{Binding SelectedFlat}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Номер: " FontSize="20"/>
+                            <Label Text="{Binding Path=flat_id}" FontSize="20"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Площадь: " FontSize="20"/>
+                            <Label Text="{Binding Path=square}" FontSize="20"/>
+                            <Label Text="Этаж: " FontSize="20" Margin="8"/>
+                            <Label Text="{Binding Path=floor}" FontSize="20"/>
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+            </ListView.ItemTemplate>  
+        </ListView>
+    </StackLayout>
+
 </ContentPage>

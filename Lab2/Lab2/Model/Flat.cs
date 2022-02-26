@@ -16,6 +16,8 @@ namespace Lab2.Model
         [Required]
         public byte floor { get; set; }
         [Required]
+        public byte room { get; set; }
+        [Required]
         [StringLength(50)]
         public string material { get; set; }
         public virtual District District { get; set; }
@@ -24,12 +26,13 @@ namespace Lab2.Model
         {
 
         }
-        public Flat(int district_id, double square, byte floor, string material)
+        public Flat(int district_id, double square, byte floor, string material, byte room)
         {
             this.district_id = district_id;
             this.square = square;
             this.floor = floor;
             this.material = material;
+            this.room = room;
         }
     }
 }

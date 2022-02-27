@@ -8,7 +8,7 @@
             <Label Text="Выбранная квартира" FontSize="28" HorizontalTextAlignment="Center"/>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                 <Label Text="Комнат:" FontSize="20"/>
-                <Entry FontSize="20" WidthRequest="80" Keyboard="Numeric" Text="{Binding CurrentFlat}"/>
+                <Entry FontSize="20" WidthRequest="80" Keyboard="Numeric" Text="{Binding CurrentRoom}"/>
                 <Label Text="Площадь:" FontSize="20"/>
                 <Entry FontSize="20" WidthRequest="100" Keyboard="Numeric" Text="{Binding CurrentSquare}"/>
             </StackLayout>
@@ -20,7 +20,7 @@
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                 <Label Text="Район:" FontSize="20"/>
-                <Picker WidthRequest="300" SelectedItem="{Binding SelectedDistrict}" ItemsSource="{Binding Districts}"/>
+                <Picker WidthRequest="300" SelectedItem="{Binding SelectedDistrict}" ItemsSource="{Binding Districts}" ItemDisplayBinding="{Binding Path=district}"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                 <Button Text="Сохранить" FontSize="20" Command="{Binding Update}"/>
@@ -28,21 +28,23 @@
                 <Button Text="Создать" FontSize="20" Command="{Binding Create}"/>
             </StackLayout>
         </StackLayout>
-        <ListView ItemsSource="{Binding AllFlats}" SelectedItem="{Binding SelectedFlat}">
+        <ListView RowHeight="60" ItemsSource="{Binding AllFlats}" SelectedItem="{Binding SelectedFlat}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Orientation="Vertical">
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Номер: " FontSize="20"/>
-                            <Label Text="{Binding Path=flat_id}" FontSize="20"/>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Номер: " FontSize="20"/>
+                                <Label Text="{Binding Path=flat_id}" FontSize="20"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Площадь: " FontSize="20"/>
+                                <Label Text="{Binding Path=square}" FontSize="20"/>
+                                <Label Text="Комнат: " FontSize="20" />
+                                <Label Text="{Binding Path=room}" FontSize="20"/>
+                            </StackLayout>
                         </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Площадь: " FontSize="20"/>
-                            <Label Text="{Binding Path=square}" FontSize="20"/>
-                            <Label Text="Этаж: " FontSize="20" Margin="8"/>
-                            <Label Text="{Binding Path=floor}" FontSize="20"/>
-                        </StackLayout>
-                    </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>  
         </ListView>

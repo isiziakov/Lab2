@@ -1,22 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Lab2.Model
 {
-    class Flat
+    public class Flat : INotifyPropertyChanged
     {
         [Required]
         public int district_id { get; set; }
         [Key]
         public int flat_id { get; set; }
         [Required]
-        public double square { get; set; }
+        private double _square;
+        public double square
+        {
+            get { return _square; }
+            set
+            {
+                _square = value;
+                OnPropertyChanged("square");
+            }
+        }
+        private byte _room;
+        public byte room
+        {
+            get { return _room; }
+            set
+            {
+                _room = value;
+                OnPropertyChanged("room");
+            }
+        }
         [Required]
         public byte floor { get; set; }
-        [Required]
-        public byte room { get; set; }
         [Required]
         [StringLength(50)]
         public string material { get; set; }
@@ -33,6 +51,13 @@ namespace Lab2.Model
             this.floor = floor;
             this.material = material;
             this.room = room;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

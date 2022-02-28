@@ -20,11 +20,11 @@ namespace Lab2
                 ItemsSource = MainVM.AllFlats,
                 ItemTemplate = new DataTemplate(() =>
                 {
-                    Label id = new Label { FontSize = 20 };
+                    Label id = new Label { FontSize = 18 };
                     id.SetBinding(Label.TextProperty, "flat_id");
-                    Label room = new Label { FontSize = 20 };
+                    Label room = new Label { FontSize = 18 };
                     room.SetBinding(Label.TextProperty, "room");
-                    Label square = new Label { FontSize = 20 };
+                    Label square = new Label { FontSize = 18 };
                     square.SetBinding(Label.TextProperty, "square");
                     return new ViewCell()
                     {
@@ -40,7 +40,7 @@ namespace Lab2
                                         new Label()
                                         {
                                             Text = "Номер: ",
-                                            FontSize = 20
+                                            FontSize = 18
                                         },
                                         id
                                     }
@@ -53,13 +53,13 @@ namespace Lab2
                                         new Label()
                                         {
                                             Text = "Площадь: ",
-                                            FontSize = 20
+                                            FontSize = 18
                                         },
                                         square,
                                         new Label()
                                         {
                                             Text = "Комнат: ",
-                                            FontSize = 20
+                                            FontSize = 18
                                         },
                                         room
                                     }
@@ -72,35 +72,35 @@ namespace Lab2
             list.SetBinding(ListView.SelectedItemProperty, "SelectedFlat");
             var picker = new Picker()
             {
-                WidthRequest = 300,
+                WidthRequest = 280,
                 ItemsSource = MainVM.Districts,
                 ItemDisplayBinding = new Binding("district")
             };
             picker.SetBinding(Picker.SelectedItemProperty, "SelectedDistrict");
             var ematerial = new Entry()
             {
-                FontSize = 20,
-                WidthRequest = 160,
+                FontSize = 18,
+                WidthRequest = 120,
                 Keyboard = Keyboard.Numeric
             };
             ematerial.SetBinding(Entry.TextProperty, "CurrentMaterial");
             var eroom = new Entry()
             {
-                FontSize = 20,
-                WidthRequest = 80,
+                FontSize = 18,
+                WidthRequest = 75,
                 Keyboard = Keyboard.Numeric
             };
             eroom.SetBinding(Entry.TextProperty, "CurrentRoom");
             var esquare = new Entry()
             {
-                FontSize = 20,
-                WidthRequest = 100,
+                FontSize = 18,
+                WidthRequest = 95,
                 Keyboard = Keyboard.Numeric
             };
             esquare.SetBinding(Entry.TextProperty, "CurrentSquare");
             var efloor = new Entry()
             {
-                FontSize = 20,
+                FontSize = 18,
                 WidthRequest = 60,
                 Keyboard = Keyboard.Numeric
             };
@@ -128,13 +128,13 @@ namespace Lab2
                                 new Label()
                                 {
                                     Text = "Комнат:",
-                                    FontSize = 20
+                                    FontSize = 18
                                 },
                                 eroom,
                                 new Label()
                                 {
                                     Text = "Площадь:",
-                                    FontSize = 20
+                                    FontSize = 18
                                 },
                                 esquare
                             }
@@ -148,13 +148,13 @@ namespace Lab2
                                 new Label()
                                 {
                                     Text = "Этаж:",
-                                    FontSize = 20
+                                    FontSize = 18
                                 },
                                 efloor,
                                 new Label()
                                 {
                                     Text = "Материал:",
-                                    FontSize = 20
+                                    FontSize = 18
                                 },
                                 ematerial
                             }
@@ -168,7 +168,7 @@ namespace Lab2
                                 new Label()
                                 {
                                     Text = "Район:",
-                                    FontSize = 20
+                                    FontSize = 18
                                 },
                                 picker
                             }
@@ -182,19 +182,19 @@ namespace Lab2
                                 new Button()
                                 {
                                     Text = "Сохранить",
-                                    FontSize = 20,
+                                    FontSize = 18,
                                     Command = MainVM.Update
                                 },
                                 new Button()
                                 {
                                     Text = "Удалить",
-                                    FontSize = 20,
+                                    FontSize = 18,
                                     Command = MainVM.Delete
                                 },
                                 new Button()
                                 {
                                     Text = "Создать",
-                                    FontSize = 20,
+                                    FontSize = 18,
                                     Command = MainVM.Create
                                 }
                             }
